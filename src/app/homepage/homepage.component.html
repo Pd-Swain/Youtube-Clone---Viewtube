@@ -1,0 +1,53 @@
+<mat-toolbar color="primary">
+  <button
+    type="button"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    (click)="drawer.toggle()">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <span>ViewTube</span>
+
+  <mat-form-field style="width: 300px; margin: 50px auto; display: block;">
+    <input type="text" matInput placeholder="Search" />
+    <button mat-button><mat-icon>search</mat-icon></button>
+    <button mat-button>
+      <mat-icon matTooltip="Audio Search">mic</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button mat-button>
+    <mat-icon matTooltip="Notifications">
+      <span matBadge="5" matBadgePosition="above after" matBadgeOverlap="false"></span>notifications
+    </mat-icon>
+    <mat-menu #menu="matMenu" xPosition="after" yPosition="above">
+      <button mat-menu-item>
+        <mat-icon><span></span>settings</mat-icon>Settings
+      </button>
+      <button mat-menu-item><mat-icon><span></span>help</mat-icon>Help</button>
+      <button mat-menu-item><mat-icon><span></span>notifications_off</mat-icon>Disable alerts</button>
+      <button mat-menu-item disabled=""><mat-icon><span></span>feedback</mat-icon>Send Feedback</button>
+    </mat-menu>
+  </button>
+  <button mat-button routerLink="studio/studio-upload"><mat-icon matTooltip="Create Video">videocam</mat-icon></button>
+  <button mat-button><mat-icon matTooltip="Apps">apps</mat-icon></button>
+  <button mat-button [matMenuTriggerFor]="menu"><mat-icon matTooltip="Manage Profile">person</mat-icon></button>
+</mat-toolbar>
+<!-- sidenav container -->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" mode="side" [opened]="(isHandset$ | async) === true"><br>
+    <button mat-button><mat-icon style="font-size: 20px">home</mat-icon>Home</button><br><br>
+    <button mat-button><mat-icon style="font-size: 20px">explore</mat-icon>Explore</button><br><br>
+    <button mat-button><mat-icon style="font-size: 20px">subscriptions</mat-icon>Subscriptions</button><br><br>
+    <button mat-button><mat-icon style="font-size: 20px">video_library</mat-icon>Library</button><br><br>
+    <button mat-button><mat-icon style="font-size: 20px"><span></span>history</mat-icon>History</button><br><br>
+    <hr><br>
+    <p style="text-align: center;">Sign in to like videos, <br>comment, and subscribe</p>
+    <button mat-stroked-button color="primary" style="width: 100px; margin: auto; display: block;">SIGN IN</button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- Add Content Here -->
+    <app-chips-bar></app-chips-bar>
+    <app-video-content ></app-video-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

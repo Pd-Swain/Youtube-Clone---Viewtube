@@ -1,0 +1,58 @@
+<body>
+    
+    <div style="height: 680px; background-color: slategrey;">
+        <form class="form-container" [formGroup]="livestreamdata" style="margin-left: 150px; padding-top: 20px;">
+          <h1>Live Stream Editor</h1>
+          <div>
+            <mat-form-field style="width: 610px;" appearance="fill">
+              <mat-label>Add Title</mat-label>
+              <input matInput [formControl]="title" required>
+              <mat-error *ngIf="title.invalid">{{titleErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+    
+          <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>From Date</mat-label>
+              <input type="date" matInput [formControl]="startDate" required>
+              <mat-error *ngIf="startDate.invalid">{{startDateErrorMessage()}}</mat-error>
+            </mat-form-field>&nbsp;
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>From Time</mat-label>
+              <input type="time" matInput [formControl]="time" required>
+              <mat-error *ngIf="time.invalid">{{timeErrorMessage()}}</mat-error>
+            </mat-form-field>&nbsp;
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>To Time</mat-label>
+              <input type="time" matInput [formControl]="time" required>
+              <mat-error *ngIf="time.invalid">{{timeErrorMessage()}}</mat-error>
+            </mat-form-field>&nbsp;
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>To Date</mat-label>
+              <input type="date" matInput>
+            </mat-form-field>
+          </div>
+    
+          <div>
+            <h1>Event Details</h1>
+            <mat-form-field appearance="fill" style="width: 350px;">
+              <mat-label>Add Event Details</mat-label>
+              <textarea rows="9" cols="200" matInput></textarea>
+            </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field appearance="fill" style="width: 400px;">
+              <mat-label>Guests</mat-label>
+              <mat-select>
+                <mat-option disabled="" style="color: red;">Guest list</mat-option>
+                <mat-option value="selena">Selena Gomez</mat-option>
+                <mat-option value="ariana">Ariana Grande</mat-option>
+                <mat-option value="kim">Kim Kardashian</mat-option>
+                <mat-option value="vin">Vin Diesel</mat-option>
+                <mat-option value="tom">Tom cruize</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <button type="submit" [disabled]="!livestreamdata.valid" (click)="submitdata()" mat-raised-button style="width: 80px; height: 40px">Save</button>
+        </form>
+      </div>
+
+</body>

@@ -1,0 +1,58 @@
+<body>
+    
+    <div style="height: 680px; background-color: slategrey;">
+        <form [formGroup]="Videocreate" style="margin-left: 150px; padding-top: 15px;">
+            <div style="float: right; width: 650px;">
+                <h1 style="font-size: 30px;">Video Preview</h1>
+                <div style="background-color: navy; color: aliceblue; padding: 20px; border-radius: 12px;">
+                    <br>
+                    <h1 style="font-weight: bolder;">Description</h1><br>
+                    <h4>Visibility - Public</h4>
+                    <h4>Distribution - Only on Monetized Platforms</h4>
+                    <h4>License - Creative Common License</h4>
+                </div>
+            </div>
+            <h1 style="font-size: 30px;">Video Details</h1>
+            <button type="submit" [disabled]="!Videocreate.valid" mat-raised-button style="width: 80px; height: 40px; position: relative; bottom: 40px; left: 620px;">Save</button>
+            <div>
+                <mat-form-field appearance="outline" style="width: 700px;">
+                    <mat-label>Video Url *</mat-label>
+                    <input matInput>
+                    <mat-hint>Video Url needs to be of type Youtube embed</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="width: 700px;">
+                    <mat-label>Title *</mat-label>
+                    <input matInput>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="width: 700px;">
+                    <mat-label>Description</mat-label>
+                    <textarea rows="5" cols="200" matInput></textarea>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="width: 700px;">
+                    <mat-label>Video Duration</mat-label>
+                    <input matInput>
+                    <mat-hint>Enter the duration in the folowing format P</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="width: 700px;">
+                    <mat-label>Channel Title *</mat-label>
+                    <input matInput>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+            </div>
+            <h1 style="font-size: 30px;">Audience</h1>
+            <div>
+                <h3>Is this video made for kids?</h3>
+                <mat-radio-group aria-label="Audience Type">
+                    <mat-radio-button value="1">Yes,its made for Kids</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                    <mat-radio-button value="2">Not for Kids</mat-radio-button>
+                </mat-radio-group>  
+            </div>
+        </form>
+    </div>
+
+</body>
